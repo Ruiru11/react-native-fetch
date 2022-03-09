@@ -10,14 +10,15 @@ git clone https://github.com/Ruiru11/react-native-fetch.git
 npm install
 ```
 
-## Testing 
+## Testing android
 
 ```javascript
 
  run react-native run-android 
+
+# for ios
+ run react-native run-ios 
 ```
 
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
+## Notes
+The project shows how to use fetch in reactnative. once the application is open click on the signin button.
