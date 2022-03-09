@@ -1,6 +1,7 @@
 import * as TYPES from '../Constants';
 import {login} from '../Network/fetch';
 import {EventRegister} from 'react-native-event-listeners';
+import {snackbar} from '../../Utils/functions';
 
 export const loginAction = data => dispatch => {
   dispatch({type: TYPES.LOGIN});
@@ -18,6 +19,7 @@ export const loginAction = data => dispatch => {
           type: TYPES.LOGIN_FAILURE,
           payload: response,
         });
+        snackbar('Wrong username or password');
       }
     } catch (error) {
       dispatch({

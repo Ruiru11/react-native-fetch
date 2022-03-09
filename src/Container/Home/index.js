@@ -42,7 +42,7 @@ const Home = () => {
         backgroundColor: '#fff',
         height: '100%',
       }}>
-      {fetchDataLoad && (
+      {fetchDataLoad ? (
         <View
           style={{
             flex: 1,
@@ -56,64 +56,65 @@ const Home = () => {
             </Heading>
           </HStack>
         </View>
-      )}
-      <Box>
-        <Heading fontSize="xl" p="4" pb="3">
-          Data
-        </Heading>
-        <FlatList
-          data={fetchDataResponse}
-          renderItem={({item}) => (
-            <Box
-              borderBottomWidth="1"
-              _dark={{
-                borderColor: 'gray.600',
-              }}
-              borderColor="coolGray.200"
-              pl="4"
-              pr="5"
-              py="2">
-              <HStack space={5} justifyContent="space-between">
-                <VStack>
-                  <Text
-                    _dark={{
-                      color: 'warmGray.50',
-                    }}
-                    color="coolGray.800"
-                    bold>
-                    {item.value}
-                  </Text>
-                  <Text
-                    color="coolGray.600"
-                    _dark={{
-                      color: 'warmGray.200',
-                    }}>
-                    {item.key}
-                  </Text>
-                  <Text
-                    color="coolGray.600"
-                    _dark={{
-                      color: 'warmGray.200',
-                    }}>
-                    {item.updatedByID}
-                  </Text>
-                  <Text
-                    color="coolGray.600"
-                    _dark={{
-                      color: 'warmGray.200',
-                    }}>
-                    {item.key}
-                  </Text>
-                </VStack>
-                <Spacer />
+      ) : (
+        <Box>
+          <Heading fontSize="xl" p="4" pb="3">
+            Data
+          </Heading>
+          <FlatList
+            data={fetchDataResponse}
+            renderItem={({item}) => (
+              <Box
+                borderBottomWidth="1"
+                _dark={{
+                  borderColor: 'gray.600',
+                }}
+                borderColor="coolGray.200"
+                pl="4"
+                pr="5"
+                py="2">
+                <HStack space={5} justifyContent="space-between">
+                  <VStack>
+                    <Text
+                      _dark={{
+                        color: 'warmGray.50',
+                      }}
+                      color="coolGray.800"
+                      bold>
+                      {item.value}
+                    </Text>
+                    <Text
+                      color="coolGray.600"
+                      _dark={{
+                        color: 'warmGray.200',
+                      }}>
+                      {item.key}
+                    </Text>
+                    <Text
+                      color="coolGray.600"
+                      _dark={{
+                        color: 'warmGray.200',
+                      }}>
+                      {item.updatedByID}
+                    </Text>
+                    <Text
+                      color="coolGray.600"
+                      _dark={{
+                        color: 'warmGray.200',
+                      }}>
+                      {item.key}
+                    </Text>
+                  </VStack>
+                  <Spacer />
 
-                <Spacer />
-              </HStack>
-            </Box>
-          )}
-          keyExtractor={item => item.configurationID}
-        />
-      </Box>
+                  <Spacer />
+                </HStack>
+              </Box>
+            )}
+            keyExtractor={item => item.configurationID}
+          />
+        </Box>
+      )}
     </View>
   );
 };
